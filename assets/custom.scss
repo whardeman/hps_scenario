@@ -56,12 +56,12 @@ html, body, #__nuxt, #__layout, .container, .app {
   margin: 2rem 0 0;
 
   background-color: $darkerButtonColor;
-  background: linear-gradient(90deg, $darkerButtonColor 0%, $darkestButtonColor 10%, $darkestButtonColor 90%, $darkerButtonColor 100%);;
+  background: linear-gradient(90deg, #333 0%,  $darkestButtonColor 90%, $darkerButtonColor 100%);;
   border-radius: 5px;
   .cta {
     position: relative;
     top: -.5rem;
-    padding: .5rem 1rem;
+    padding: .5rem 1rem 1rem;
     border: solid 2px $darkestButtonColor;
     border-radius: 5px;
 
@@ -164,14 +164,14 @@ html, body, #__nuxt, #__layout, .container, .app {
   height: 1.25rem;
   border: 1px solid $darkestButtonColor;
   border-radius: 100%;
-  background: linear-gradient(230deg, $buttonColor, $darkerButtonColor);
+  background: linear-gradient(230deg, $lighterButtonColor, $buttonColor);
 }
 .radio-input:checked + .label-text:after,
 .radio-input:not(:checked) + .label-text:after {
   content: '';
   width: .5rem;
   height: .5rem;
-  background: #fff;
+  background: #222;
   position: absolute;
   top: 6px;
   left: 6px;
@@ -211,7 +211,7 @@ html, body, #__nuxt, #__layout, .container, .app {
   height: 1.25rem;
   border: 1px solid $darkestButtonColor;
   border-radius: 10%;
-  background: linear-gradient(230deg, $buttonColor, $darkerButtonColor);
+  background: linear-gradient(230deg, $lighterButtonColor, $buttonColor);
   overflow: visible;
 }
 .checkbox-input:checked + .label-text:after,
@@ -221,10 +221,9 @@ html, body, #__nuxt, #__layout, .container, .app {
   bottom: -.25rem;
   right: -.05rem;
 
-  color: #fff;
+  color: #222;
   font-weight: bold;
   font-size: 1.75rem;
-  text-shadow: 0px 0px 5px #666;
 
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
