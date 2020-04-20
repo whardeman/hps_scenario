@@ -1,10 +1,9 @@
 <template>
   <ValidationProvider tag="div" :rules="rules" :name="name" :vid="vid" v-slot="{ errors }" class="field-input" :mode="interactionMode">
-    
     <div class="input-container">
-      <label class="checkbox-label" :for="field"> 
-        <input type="checkbox" :id="field" class="checkbox-input" :class="fieldClass" :maxlength="maxlength" value="false" @click="isChecked($event)" v-model="currentValue"/> 
-        <span class="label-text">{{name}}</span> 
+      <label class="checkbox-label" :for="field" :class="{ready: ready}"> 
+        <input type="checkbox" :ref="field" :id="field" class="checkbox-input" :class="fieldClass" :maxlength="maxlength" value="false" v-model="checkBoxValue"/> 
+        <span class="label-text">{{name}} </span> 
       </label>
       <div v-if="errors[0]" class="error-container popout">
         <div class="error">
@@ -57,26 +56,21 @@
     },
     data: () => ({
       currentValue: '',
-      checked: false
+      checked: false,
     }),
     computed: {
       interactionMode(){
         return this.$props.mode !== "" ? this.$props.mode : this.$parent.$parent.interactionMode;
-      }
-    },
-    watch: {
-      currentValue (val) {
-        // allows us to use v-model on our input.
-        this.$emit('input', val);
-      }
-    },
-    methods: {
-      isChecked(event){
-        if(event.target.checked){
-          this.checked = true;
+      },
+      checkBoxValue: {
+        get: function() {
+          return this.value
+        },
+        set: function() {
+          // Communicate the change to parent component so that selectedValue can be updated
+          this.$emit("input", this.$refs[this.field].checked)
         }
-        this.checked = false;
       }
-    }
+    },
   }
 </script>
