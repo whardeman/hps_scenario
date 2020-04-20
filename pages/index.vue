@@ -3,9 +3,9 @@
 
     <!-- Add your site or application content here -->
     <div class="main">
-      <h1>Fill out this form, or else.*</h1>
+      <h1 class="text-center">Fill out this form, or else.*</h1>
       <ValidationObserver ref="form">
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent="onSubmit" class="main-form">
 
           <div class="field-input-container">
 
@@ -13,7 +13,7 @@
             <TextInput name="Last name" v-model="lname" field="lname" rules="required"></TextInput>
             <TextInput name="Email" v-model="email" field="email" rules="required|email"></TextInput>
             <TextInput name="ZIP code" v-model="zipcode" field="zipcode" maxlength="5" rules="required|zipcode:5" fieldClass="sm"></TextInput>
-            <TextInput name="Total goats" type="number" v-model="goats" field="goats"maxlength="5"  mode="lazy" rules="required|goatsGreaterThanOrEqualTo:18" fieldClass="mi"></TextInput>
+            <TextInput name="Total goats" type="number" v-model="goats" field="goats"maxlength="5" rules="required|goatsGreaterThanOrEqualTo:18" fieldClass="mi"></TextInput>
             <RadioGroup name="Rating" helpText="How would you rate this form so far?" :options="ratingOptions" v-model="rating" field="rating" mode="lazy" rules="required"></RadioGroup>
             <CheckboxInput name="I've finished this form:" v-model="completed" field="completed" rules="finishRequired"></CheckboxInput>
 

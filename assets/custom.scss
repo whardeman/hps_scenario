@@ -29,7 +29,7 @@ html, body, #__nuxt, #__layout, .container, .app {
 .app {
   display: flex;
   flex-direction: column;
-  align-items: justify;
+  align-items: center;
 
   height: 100%;
 }
@@ -245,6 +245,8 @@ html, body, #__nuxt, #__layout, .container, .app {
   display: block;
 }
 
+$arrowSize: .5rem;
+$errorBg: #f58e90;
 .error {
   position: relative;
   top: 0;
@@ -252,8 +254,6 @@ html, body, #__nuxt, #__layout, .container, .app {
   width: 250px;
 
 
-  $arrowSize: .5rem;
-  $errorBg: #f58e90;
   .error-message {
     display: inline-block;
     padding: .5rem;
@@ -272,6 +272,44 @@ html, body, #__nuxt, #__layout, .container, .app {
       width: 0;
       border-top: solid $arrowSize $errorBg;
       border-left: solid $arrowSize transparent;
+    }
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  .main {
+    width: 100%;
+    border-radius: 0;
+  }
+  .main-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .field-input-container {
+    align-self: center;
+  }
+  .field-input {
+    margin: 2.75rem auto;
+  }
+  .error-container {
+    top: 2.75rem;
+    width: 50%;
+    .error {
+      width: 150px;
+      .error-message {
+        padding: .25rem;
+        &::after {
+          content:"";
+          position: absolute;
+          top: -($arrowSize - .01rem);
+          left: $arrowSize;
+          height: 0;
+          width: 0;
+          border-left: solid $arrowSize $errorBg;
+          border-top: solid $arrowSize transparent;
+        }
+      }
     }
   }
 }
@@ -300,4 +338,6 @@ html, body, #__nuxt, #__layout, .container, .app {
 .italic {
   font-style: italic;
 }
-
+.text-center {
+  text-align: center;
+}
