@@ -1,40 +1,23 @@
 <template>
-  <label class="radio-label" :for="field+'-'+value">
-    <input type="radio" :id="field+'-'+value" class="radio-input" :checked="shouldBeChecked" :value="value" @change="updateInput" /> 
-    <span class="label-text">{{label}}</span>
+  <label class="radio-label">
+    <input type="radio" class="radio-input" :value="label" :name="name" v-model="radioButtonValue">
+    <span class="label-text">{{ labelText }}</span>
   </label>
 </template>
 
 <script>
 export default {
   name: "RadioInput",
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props: {
-    value: {
-    },
-    modelValue: {
-      default: ""
-    },
-    label: {
-      type: String,
-      required: true
-    },
-    field: {
-      type: String,
-      default: ''
-    }
-  },
+  props: ['name', 'label', 'value', 'labelText'],
   computed: {
-    shouldBeChecked() {
-      return this.modelValue == this.value
-    }
-  },
-  methods: {
-    updateInput() {
-      this.$emit('change', this.value)
+    radioButtonValue: {
+      get: function() {
+        return this.value
+      },
+      set: function() {
+        // Communicate the change to parent component so that selectedValue can be updated
+        this.$emit("change", this.label)
+      }
     }
   }
 }

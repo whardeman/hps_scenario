@@ -52,12 +52,12 @@
         email: "",
         zipcode: "",
         goats: "",
-        rating: 1,
+        rating: "1",
         ratingOptions: {
-          1: "Pretty good", 
-          2: "Very Good", 
-          3: "Excellent!", 
-          4: "I want more choices..."
+          "1": "Pretty good", 
+          "2": "Very Good", 
+          "3": "Excellent!", 
+          "4": "I want more choices..."
         },
         completed: false,
         interactionMode: interactionMode,
