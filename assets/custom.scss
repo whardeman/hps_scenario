@@ -1,0 +1,304 @@
+$formHighlight: #65cafc;
+$buttonColor: #78c5cf;
+$lighterButtonColor: scale-color($buttonColor, $lightness: 15%);
+$darkerButtonColor: scale-color($buttonColor, $lightness: -20%);
+$darkestButtonColor: scale-color($buttonColor, $lightness: -35%);
+
+html, body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body, #__nuxt, #__layout, .container, .app {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: justify;
+
+  height: 100%;
+}
+.main {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #ddd;
+}
+.bottom {
+  align-self: flex-end;
+
+  padding: 1rem;
+
+  text-align: right;
+  font-style: italic;
+  color: #999;
+}
+
+.cta-container {
+  position: relative;
+  display: inline-block;
+
+  margin: 2rem 0 0;
+
+  background-color: $darkerButtonColor;
+  background: linear-gradient(90deg, $darkerButtonColor 0%, $darkestButtonColor 10%, $darkestButtonColor 90%, $darkerButtonColor 100%);;
+  border-radius: 5px;
+  .cta {
+    position: relative;
+    top: -.5rem;
+    padding: .5rem 1rem;
+    border: solid 2px $darkestButtonColor;
+    border-radius: 5px;
+
+    font-size: 1.5rem;
+    background-color: $buttonColor;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &:focus,
+    &:hover {
+      background: radial-gradient($lighterButtonColor, $buttonColor);
+    }
+    &:active {
+      top: -.1rem;
+    }
+  }
+
+}
+
+// Inputs
+.field-input-container {
+  padding: 0 1rem;
+}
+.field-input {
+  margin: 1rem auto;
+}
+.above-label {
+  display: block;
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+  margin-top: .25rem;
+
+  .basic-input {
+    display: block;
+
+    padding: .25rem .5rem;
+    border: none;
+    border-radius: 5px;
+
+    font-size: 1.5rem;
+  }
+  .basic-input {
+    &:focus,
+    &:active {
+      box-shadow: 0 0 5px $formHighlight;
+      outline: none;
+      border: none;
+    }
+  }
+  .fancy-input {
+    border-radius: 100px;
+  }
+
+  .lg {
+    width: 100%;
+  }
+  .md {
+    width: 10rem;
+  }
+  .sm {
+    width: 5rem;
+  }
+  .mi {
+    width: 3.5rem;
+  }
+  .radio-group {
+    margin-left: 1rem;
+  }
+}
+.label-text {
+  position: relative;
+  display: inline-block;
+}
+
+// Radio
+.radio-group {
+  margin: .5rem 0;
+}
+.radio-input:checked,
+.radio-input:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.radio-group .label-text {
+  padding-left: 1.75rem;
+}
+.radio-input:checked + .label-text:before,
+.radio-input:not(:checked) + .label-text:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid $darkestButtonColor;
+  border-radius: 100%;
+  background: linear-gradient(230deg, $buttonColor, $darkerButtonColor);
+}
+.radio-input:checked + .label-text:after,
+.radio-input:not(:checked) + .label-text:after {
+  content: '';
+  width: .5rem;
+  height: .5rem;
+  background: #fff;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.radio-input:not(:checked) + .label-text:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.radio-input:checked + .label-text:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+// Checkbox
+.checkbox-label {
+  position: relative;
+}
+.checkbox-input {
+  position: absolute;
+  left: -9999px;
+}
+.checkbox-label .label-text {
+  padding-right: 1.5rem;
+}
+.checkbox-input:checked + .label-text:before,
+.checkbox-input:not(:checked) + .label-text:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid $darkestButtonColor;
+  border-radius: 10%;
+  background: linear-gradient(230deg, $buttonColor, $darkerButtonColor);
+  overflow: visible;
+}
+.checkbox-input:checked + .label-text:after,
+.checkbox-input:not(:checked) + .label-text:after {
+  content: '✓';
+  position: absolute;
+  bottom: -.25rem;
+  right: -.05rem;
+
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.75rem;
+  text-shadow: 0px 0px 5px #666;
+
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.checkbox-input:not(:checked) + .label-text:after {
+  opacity: 0;
+}
+.checkbox-input:checked + .label-text:after {
+  opacity: 1;
+}
+
+// Errors
+.error-container {
+  position: absolute;
+  top: 1rem;
+  right: -.6rem;
+  width: 0;
+
+  display: block;
+}
+
+.error {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px;
+
+
+  $arrowSize: .5rem;
+  $errorBg: #f58e90;
+  .error-message {
+    display: inline-block;
+    padding: .5rem;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+
+    font-size: 1rem;
+    background-color: $errorBg;
+    box-shadow: 0 2px 3px #555;
+    &::after {
+      content:"";
+      position: absolute;
+      left: -$arrowSize;
+      top: 0;
+      height: 0;
+      width: 0;
+      border-top: solid $arrowSize $errorBg;
+      border-left: solid $arrowSize transparent;
+    }
+  }
+}
+
+// Animation
+.popout {
+    animation: popout 100ms ease;
+    -webkit-animation: popout 100ms ease;
+}
+@keyframes popout {
+    from{transform:scale(0)}
+    80%{transform:scale(1.1)}
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    80%{-webkit-transform:scale(1.1)}
+    to{-webkit-transform:scale(1)}
+}
+
+// Utilities
+.nowrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+.italic {
+  font-style: italic;
+}
+
