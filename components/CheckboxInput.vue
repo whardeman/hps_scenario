@@ -1,7 +1,7 @@
 <template>
   <ValidationProvider tag="div" :rules="rules" :name="name" :vid="vid" v-slot="{ errors }" class="field-input" :mode="interactionMode">
     <div class="input-container">
-      <label class="checkbox-label" :for="field" :class="{ready: ready}"> 
+      <label class="checkbox-label" :for="field"> 
         <input type="checkbox" :ref="field" :id="field" class="checkbox-input" :class="fieldClass" :maxlength="maxlength" value="false" v-model="checkBoxValue"/> 
         <span class="label-text">{{name}} </span> 
       </label>
